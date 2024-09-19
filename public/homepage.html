@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Color Detected Palm Fruit</title>
+    <link rel="stylesheet" href="icons.css">
+    <link rel="stylesheet" href="stylehomepage.css">
+    <script src="https://use.fontawesome.com/d1341f9b7a.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+    <script type="module" src="firebase.js"></script>
+    <script type="module" src="./homepage.js"></script>
+    <script type="module" src="scripts.js"></script>
+</head>
+
+<body>
+    <div class="dashboard"> <!--Dashboard-->
+
+        <section class="navigation"> <!--Navigation-->
+            <img src="img/logo.png" alt="Ilogo" class="logo">
+
+            <div>
+                <span class="material-symbols-outlined">dashboard</span>
+                <span class="material-symbols-outlined">trending_up</span>
+                <span class="material-symbols-outlined">group</span>
+                <span class="material-symbols-outlined">calendar_month</span>
+                <span class="material-symbols-outlined">settings</span>
+            </div>
+
+            <img src="/img/WA.jpeg" alt="User Image" class="user">
+        </section><!--Navigation Akhir-->
+
+        <section class="main"> <!--Main-->
+        <div class="search"> 
+     <!--Search<form action="">
+                    <input type="text" name="search" id="search"
+                    placeholder="Search Here">
+                    <span class="material-symbols-outlined">search</span>
+                </form>-->
+                <div class="notification">
+                <span class="material-symbols-outlined">notifications</span>
+                <span class="material-symbols-outlined">edit</span>
+                </div>
+            </div>
+
+            <div class="title">
+                <h1>Palm Fruit</h1>
+                <h1>Color Detected</h1>
+            <!--Sort 
+                <form action="#">
+                    <label for="projects">Sort By</label>
+                    <select name="projects" id="projects">
+                        <option value="recent">Recent Project</option>
+                        <option value="finish">Finished Project</option>
+                        <option value="ongoing">Ongoing Project</option>
+                        <option value="stalled">Stalled Project</option>
+                    </select>
+                </form>
+            </div> 
+            Akhir-->
+
+            <div class="project_list"> <!--Project List-->
+                
+                <div class="project"> <!--Project 1-->
+                    <div class="category category_color1"></div>
+                    <h2>Mentah</h2>
+                    <p>Nigresncess</p>
+                    <ul class="activity">
+                        <li>Ungu Kehitaman</li>
+                    </ul>
+
+                    <div class="meta" style="text-align: center">
+                       <!--TEMPAT ANGKA SENSOR-->
+                       125
+                    </div>
+
+                </div> <!--Project 1 End-->
+
+                <div class="project"> <!--Project 2-->
+                    <div class="category category_color2"></div>
+                    <h2>Setengah Matang</h2>
+                    <p>Nigresncess</p>
+                    <ul class="activity">
+                        <li>Jingga Kemerahan</li>
+                    </ul>
+
+                    <div class="meta">
+                       <!--TEMPAT ANGKA SENSOR-->
+                    </div>
+                </div> <!--Project 2 End-->
+
+                <div class="project"> <!--Project 3-->
+                    <div class="category category_color3"></div>
+                    <h2>Matang</h2>
+                    <p>Nigresncess</p>
+                    <ul class="activity">
+                        <li>Jingga Merah Kehitaman</li>
+                    </ul>
+
+                    <div class="meta">
+                       <!--TEMPAT ANGKA SENSOR-->
+                    </div>
+                </div> <!--Project 3 End-->
+
+                <div class="project"> <!--Project 4-->
+                    <div class="category category_color4"></div>
+                    <h2>Mentah</h2>
+                    <p>Virescenss</p>
+                    <ul class="activity">
+                        <li>Dominasi Hijau Gelap</li>
+                    </ul>
+
+                    <div class="meta">
+                       <!--TEMPAT ANGKA SENSOR-->
+                    </div>
+                </div> <!--Project 4 End-->
+
+                <div class="project"> <!--Project 5-->
+                    <div class="category category_color5"></div>
+                    <h2>Setengah Matang</h2>
+                    <p>Virescenss</p>
+                    <ul class="activity">
+                        <li>Dominasi Warna Kuning</li>
+                    </ul>
+
+                    <div class="meta">
+                       <!--TEMPAT ANGKA SENSOR-->
+                    </div>
+                </div> <!--Project 5 End-->
+
+                <div class="project"> <!--Project 6-->
+                    <div class="category category_color6"></div>
+                    <h2>Matang</h2>
+                    <p>Virescenss</p>
+                    <ul class="activity">
+                        <li>Merah</li>
+                    </ul>
+
+                    <div class="meta">
+                       <!--TEMPAT ANGKA SENSOR-->
+                    </div>
+                </div> <!--Project 6 End-->
+
+            </div> <!--Project List-->
+        </section><!--Main Akhir-->
+
+
+        <section class="secondary"> <!--Secondary-->
+            <div class="chart">
+                <h2>Total Project</h2>
+                <canvas id="myChart"></canvas>
+
+                <div class="complete">
+                    <h3>Total Disensor</h3>
+                    <p>from 6 colors</p>
+                </div>
+            </div>
+
+            <div class="recent_project"> <!--Recent Project-->
+                <div class="listing">
+                    <div class="title">
+                        <div class="category category_color1"></div>
+                        <h2>Layouting</h2>
+                        <p>by Chidozie</p>
+                    </div>
+                </div>
+                <div class="listing">
+                    <div class="title">
+                        <div class="category category_color2"></div>
+                        <h2>Photoshoot</h2>
+                        <p>by Tazkiyah</p>
+                    </div>
+                </div>
+                <div class="listing">
+                    <div class="title">
+                        <div class="category category_color3"></div>
+                        <h2>Design Web</h2>
+                        <p>by Nadayah</p>
+                    </div>
+                </div>
+                <div class="listing">
+                    <div class="title">
+                        <div class="category category_color4"></div>
+                        <h2>Magazine</h2>
+                        <p>by Haruka</p>
+                    </div>
+                </div>
+                <div class="listing">
+                    <div class="title">
+                        <div class="category category_color5"></div>
+                        <h2>StoryLine</h2>
+                        <p>by Dela</p>
+                    </div>
+                </div>
+                <div class="listing">
+                    <div class="title">
+                        <div class="category category_color6"></div>
+                        <h2>Farming</h2>
+                        <p>by Dahlia</p>
+                    </div>
+                </div>
+            </div><!--Recent Project End-->
+        </section><!--Secondary Akhir-->
+
+    </div> <!--Dashboard Akhir-->
+
+
+
+    <script>
+        const ctx = document.getElementById('myChart');
+      
+        new Chart(ctx, {
+          type: 'doughnut',
+          data: {
+            labels: ['MentahN', 'SMatangN', 'MatangN', 'MentahV', 'SMatangV', 'MatangV'],
+            datasets: [{
+              label: '# of Votes',
+              data: [12, 19, 3, 5, 2, 3],
+              backgroundColor: [
+                    'rgb(31, 1, 22)',
+                    'rgb(210, 54, 15)',
+                    'rgb(128, 23, 0)',
+                    'rgb(70, 132, 12)',
+                    'rgb(240, 237, 73)',
+                    'rgb(255, 0, 0)',
+                    ],
+                hoverOffset: 4
+            }]
+          },
+        });
+      </script>
+
+</body>
+</html>
