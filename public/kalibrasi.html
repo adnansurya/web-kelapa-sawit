@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warna dari Firebase</title>
+    <style>
+        .color-box {
+            width: 300px;
+            height: 300px;
+            margin: 20px auto;
+            border: 2px solid #333;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .label {
+            text-align: center;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+
+        .rgb-values {
+            text-align: center;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="title">Kotak Warna Berdasarkan RGB dari Firebase</div>
+    <div class="color-box" id="colorBox"></div>
+    <div class="label" id="colorLabel">Label akan muncul di sini</div>
+    <div class="rgb-values" id="rgbValues">R: -, G: -, B: -</div>
+
+    <script>
+        function getColor(r, g, b) {
+            if (g <=100 && (b-g > -30) ) {
+                return "Ungu Kehitaman";
+            } else if (r < g && g-r > 10 && g > 100 && b < g && (g-b) > 10) {
+                return "Hijau Gelap";
+            } else if (r <= 140 && g <= 120 && (g-b) <= 100 && ((r-g) <= 100 && r > g)) {
+                return "Jingga Merah Kehitaman";
+            } else if (r >= 120 && g <= 60  && (g-b) <= 20  && (r-g > 100)) {
+                return "Merah";
+            }else if (r > 140 && (g >= b)  && (r-g > g-b)) {
+                return "Jingga Kemerahan";
+            } else if ((g-b) > 50 && (r >= g || g-r < 10) && b <= 200) {
+                return "Kuning";
+            }  else {
+                return "Tidak Dikenal";
+            }
+        }
+    </script>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-database.js";
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBROYVHbhbbsa7KESqpZCH8Hm4mlqx_Rwc",
+            authDomain: "colordetectedpalmfruit.firebaseapp.com",
+            databaseURL: "https://colordetectedpalmfruit-default-rtdb.firebaseio.com",
+            projectId: "colordetectedpalmfruit",
+            storageBucket: "colordetectedpalmfruit.appspot.com",
+            messagingSenderId: "423623916774",
+            appId: "1:423623916774:web:087efa74173b7403810f27",
+            measurementId: "G-4580V5B7KP"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
+        // Reference to RGB values in Firebase Realtime Database
+        const rgbRef = ref(database, 'rgb');  // Pastikan ini sesuai dengan direktori di Firebase Anda
+
+        // Update box color whenever the RGB values change
+        onValue(rgbRef, (snapshot) => {
+            const rgbData = snapshot.val();
+            const r = rgbData.r;
+            const g = rgbData.g;
+            const b = rgbData.b;
+            const labelData = rgbData.color;
+
+            // Update the color of the box
+            const colorBox = document.getElementById('colorBox');
+            colorBox.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+
+            const colorLabel = document.getElementById('colorLabel');
+            colorLabel.innerText = labelData; // getColor(r,g,b);
+
+            const rgbValues = document.getElementById('rgbValues');
+            rgbValues.innerText = `R: ${r}, G: ${g}, B: ${b}`;
+        });
+    </script>
+
+</body>
+
+</html>
