@@ -84,7 +84,7 @@
         const database = getDatabase(app);
 
         // Reference to RGB values in Firebase Realtime Database
-        const rgbRef = ref(database, 'rgb');  // Pastikan ini sesuai dengan direktori di Firebase Anda
+        const rgbRef = ref(database, 'update');  // Pastikan ini sesuai dengan direktori di Firebase Anda
 
         // Update box color whenever the RGB values change
         onValue(rgbRef, (snapshot) => {
